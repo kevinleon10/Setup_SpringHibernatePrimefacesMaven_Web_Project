@@ -9,7 +9,8 @@
     <p:growl id="messages"></p:growl>
     <p:commandButton value="Create employee" actionListener="#{crudEmployee.viewEmployee(null)}"/>
     <p:dataTable var="employee" value="#{crudEmployee.employeeList}">
-        <p:column headerText="Id">
+
+        <p:column headerText="Id in DB">
             <h:outputText value="#{employee.employeeId}" />
         </p:column>
 
