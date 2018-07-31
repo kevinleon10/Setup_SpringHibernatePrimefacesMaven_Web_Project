@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Register Employee</title>
+</h:head>
+<h:form>
+    <p:growl id="messages"></p:growl>
+    <p:commandButton value="Create employee" actionListener="#{crudEmployee.viewEmployee(null)}"/>
+    <p:dataTable var="employee" value="#{crudEmployee.employeeList}">
+        <p:column headerText="Id">
+            <h:outputText value="#{employee.employeeId}" />
+        </p:column>
+
+        <p:column headerText="Name">
+            <h:outputText value="#{employee.employeeName}" />
+        </p:column>
+
+        <p:column headerText="Hire date">
+            <h:outputText value="#{employee.employeeHireDate}" />
+        </p:column>
+
+        <p:column headerText="Salary">
+            <h:outputText value="#{employee.employeeSalary}" />
+        </p:column>
+
+        <p:column headerText="Modify">
+            <p:commandButton icon="ui-icon-arrowrefresh-1-w" actionListener="#{crudEmployee.viewEmployee(employee)}" />
+        </p:column>
+
+        <p:column headerText="Delete">
+            <p:commandButton icon="ui-icon-trash" actionListener="#{crudEmployee.deleteEmployee(employee)}" update="@form"/>
+        </p:column>
+    </p:dataTable>
+</h:form>
+</html>

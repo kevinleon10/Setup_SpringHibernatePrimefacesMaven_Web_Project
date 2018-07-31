@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Register Employee</title>
+</h:head>
+<h:form>
+    <p:growl id="messages"></p:growl>
+    <p:panelGrid columns="2">
+        <p:outputLabel value="Enter Employee Name:"></p:outputLabel>
+        <p:inputText value="#{crudEmployee.employee.employeeName}"></p:inputText>
+        <p:outputLabel value="Enter Employee Hire Date:"></p:outputLabel>
+        <p:calendar value="#{crudEmployee.employee.employeeHireDate}"></p:calendar>
+        <p:outputLabel value="Enter Employee Salary:"></p:outputLabel>
+        <p:inputText value="#{crudEmployee.employee.employeeSalary}"></p:inputText>
+    </p:panelGrid>
+    <p:commandButton value="Register" action="#{crudEmployee.register}" update="messages"></p:commandButton>
+    <p:commandButton value="Return" action="#{crudEmployee.returnHome}"></p:commandButton>
+</h:form>
+</html>
